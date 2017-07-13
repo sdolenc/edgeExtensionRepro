@@ -1,0 +1,3014 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><<!-->
+<html lang="en"><!--<![endif]--><head dir="ltr">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+        Files &amp; Uploads |
+        
+        edX Demonstration Course |
+        Studio
+    </title>
+
+    
+
+    <script type="text/javascript" src="/static/d46cd74265/js/i18n/en/djangojs.b28203373cc1.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="path_prefix" content="">
+
+    
+  
+
+    <link href="/static/d46cd74265/css/cms-style-vendor.bffb7fa5b2c5.css" rel="stylesheet" type="text/css">
+
+
+
+    
+  
+
+    <link href="/static/d46cd74265/css/cms-style-vendor-tinymce-content.5215de4a2c2f.css" rel="stylesheet" type="text/css">
+
+
+
+    
+  
+
+    <link href="/static/d46cd74265/css/cms-style-vendor-tinymce-skin.8df4b871f632.css" rel="stylesheet" type="text/css">
+
+
+
+
+    
+  
+
+    <link href="/static/d46cd74265/css/studio-main-v1.2dcbb5863612.css" rel="stylesheet" type="text/css">
+
+
+
+
+    
+
+
+
+
+<!-- dummy Segment -->
+<script type="text/javascript">
+  var course_location_analytics = "course\u002Dv1:edX+DemoX+Demo_Course";
+  var analytics = {
+    "track": function() {}
+  };
+</script>
+<!-- end dummy Segment -->
+
+
+    
+<script type="text/template" id="asset-tpl">
+    <td class="thumb-col">
+    <div class="thumb">
+        <% if (thumbnail !== '') { %>
+        <img src="<%- thumbnail %>" alt="<%- gettext('No description available') %>">
+        <% } %>
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="<%- gettext('Open/download this file') %>" href="<%- url %>" class="filename"><%- display_name %></a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    <%- asset_type %>
+</td>
+<td class="date-col">
+    <%- date_added %>
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label"><%- gettext('Studio:') %></span>
+                <input type="text" class="embeddable-xml-input" value="<%- portable_url %>" readonly>
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label"><%- gettext('Web:') %></span>
+                <input type="text" class="embeddable-xml-input" value="<%- external_url %>" readonly>
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="<%- gettext('Delete this asset') %>" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr"><%- gettext('Delete this asset') %></span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="<%- uniqueId %>"><span class="sr"><%- gettext('Lock this asset') %></span></label>
+            <input type="checkbox" id="<%- uniqueId %>" class="lock-checkbox" data-tooltip="<%- gettext('Lock/unlock file') %>" />
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</script>
+
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="common/js/common_libraries" src="/static/d46cd74265/common/js/common_libraries.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/factories/base" src="/static/d46cd74265/js/factories/base.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/sock" src="/static/d46cd74265/js/sock.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="js/factories/asset_index" src="/static/d46cd74265/js/factories/asset_index.js"></script></head>
+
+  <body class="ltr is-signedin course uploads view-uploads lang_en js">
+    
+
+    <a class="nav-skip" href="#main">Skip to main content</a>
+
+    <script type="text/javascript">
+      window.baseUrl = "/static/d46cd74265/";
+      var require = {baseUrl: window.baseUrl};
+    </script>
+    <script type="text/javascript" src="/static/d46cd74265/common/js/vendor/require.eb0ef9ae5ed6.js"></script>
+    <script type="text/javascript" src="/static/d46cd74265/cms/js/require-config.24ea7e392ce2.js"></script>
+
+    <!-- view -->
+    <div class="wrapper wrapper-view" dir="ltr">
+        
+        
+
+
+<div class="wrapper-header wrapper" id="view-top">
+  <header class="primary" role="banner">
+
+    <div class="wrapper wrapper-l">
+      <h1 class="branding">
+        <a class="brand-link" href="/">
+          <img class="brand-image" src="/static/d46cd74265/images/studio-logo.b6c374d66d57.png" alt="Studio">
+        </a>
+      </h1>
+
+      
+      <h2 class="info-course">
+        <span class="sr">Current Course:</span>
+        <a class="course-link" href="/course/course-v1:edX+DemoX+Demo_Course">
+          <span class="course-org">edX</span><span class="course-number">DemoX</span>
+          <span class="course-title" title="edX Demonstration Course">edX Demonstration Course</span>
+        </a>
+      </h2>
+
+      <nav class="nav-course nav-dd ui-left" aria-label="Course">
+        <h2 class="sr">Course Navigation</h2>
+        <ol>
+          <li class="nav-item nav-course-courseware">
+            <h3 class="title"><span class="label"><span class="label-prefix sr">Course </span>Content</span> <span class="icon fa fa-caret-down ui-toggle-dd" aria-hidden="true"></span></h3>
+
+            <div class="wrapper wrapper-nav-sub">
+              <div class="nav-sub">
+                <ul>
+                  <li class="nav-item nav-course-courseware-outline">
+                    <a href="/course/course-v1:edX+DemoX+Demo_Course">Outline</a>
+                  </li>
+                  <li class="nav-item nav-course-courseware-updates">
+                    <a href="/course_info/course-v1:edX+DemoX+Demo_Course">Updates</a>
+                  </li>
+                  <li class="nav-item nav-course-courseware-pages">
+                    <a href="/tabs/course-v1:edX+DemoX+Demo_Course">Pages</a>
+                  </li>
+                  <li class="nav-item nav-course-courseware-uploads">
+                    <a href="/assets/course-v1:edX+DemoX+Demo_Course/">Files &amp; Uploads</a>
+                  </li>
+                  <li class="nav-item nav-course-courseware-textbooks">
+                    <a href="/textbooks/course-v1:edX+DemoX+Demo_Course">Textbooks</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item nav-course-settings">
+            <h3 class="title"><span class="label"><span class="label-prefix sr">Course </span>Settings</span> <span class="icon fa fa-caret-down ui-toggle-dd" aria-hidden="true"></span></h3>
+
+            <div class="wrapper wrapper-nav-sub">
+              <div class="nav-sub">
+                <ul>
+                  <li class="nav-item nav-course-settings-schedule">
+                    <a href="/settings/details/course-v1:edX+DemoX+Demo_Course">Schedule &amp; Details</a>
+                  </li>
+                  <li class="nav-item nav-course-settings-grading">
+                    <a href="/settings/grading/course-v1:edX+DemoX+Demo_Course">Grading</a>
+                  </li>
+                  <li class="nav-item nav-course-settings-team">
+                    <a href="/course_team/course-v1:edX+DemoX+Demo_Course">Course Team</a>
+                  </li>
+                  <li class="nav-item nav-course-settings-group-configurations">
+                    <a href="/group_configurations/course-v1:edX+DemoX+Demo_Course">Group Configurations</a>
+                  </li>
+                  <li class="nav-item nav-course-settings-advanced">
+                    <a href="/settings/advanced/course-v1:edX+DemoX+Demo_Course">Advanced Settings</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item nav-course-tools">
+            <h3 class="title"><span class="label">Tools</span> <span class="icon fa fa-caret-down ui-toggle-dd" aria-hidden="true"></span></h3>
+            <div class="wrapper wrapper-nav-sub">
+              <div class="nav-sub">
+                <ul>
+                  <li class="nav-item nav-course-tools-import">
+                    <a href="/import/course-v1:edX+DemoX+Demo_Course">Import</a>
+                  </li>
+                  <li class="nav-item nav-course-tools-export">
+                    <a href="/export/course-v1:edX+DemoX+Demo_Course">Export</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="wrapper wrapper-r">
+      <nav class="nav-account nav-is-signedin nav-dd ui-right" aria-label="Account">
+        <h2 class="sr-only">Account Navigation</h2>
+        <ol>
+          <li class="nav-item nav-account-help">
+            <h3 class="title"><span class="label"><a href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/course_assets/course_files.html" title="Contextual Online Help" target="_blank">Help</a></span></h3>
+          </li>
+          <li class="nav-item nav-account-user">
+            
+
+
+
+  <h3 class="title">
+    <span class="label">
+      <span class="label-prefix sr-only">Currently signed in as:</span>
+      <span class="account-username" title="staff">staff</span>
+    </span>
+    <span class="icon fa fa-caret-down ui-toggle-dd" aria-hidden="true"></span>
+  </h3>
+
+  <div class="wrapper wrapper-nav-sub">
+    <div class="nav-sub">
+      <ul>
+        <li class="nav-item nav-account-dashboard">
+          <a href="/">Studio Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/maintenance/">Maintenance</a>
+        </li>
+        <li class="nav-item nav-account-signout">
+          <a class="action action-signout" href="/logout">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+  </header>
+</div>
+
+
+      <div id="page-alert">
+      
+      </div>
+
+      <main id="main" aria-label="Content" tabindex="-1">
+          <div id="content">
+          
+
+<div class="wrapper-mast wrapper">
+    <header class="mast has-actions has-subtitle">
+        <h1 class="page-header">
+            <small class="subtitle">Content</small>
+            <span class="sr">&gt; </span>Files &amp; Uploads
+        </h1>
+
+        <nav class="nav-actions" aria-label="Page Actions">
+            <h3 class="sr">Page Actions</h3>
+            <ul>
+                <li class="nav-item">
+                    <a href="#" class="button upload-button new-button"><span class="icon fa fa-plus" aria-hidden="true"></span> Upload New File</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="wrapper-content wrapper">
+    <section class="content">
+        <article class="content-primary" role="main">
+            <div class="wrapper-assets"><div class="assets-library" style="display: block;">
+    <div id="asset-paging-header"><div class="meta-wrap">
+    <div class="meta">
+        <p>Showing <span class="count-current-shown">1-50</span> out of <span class="count-total">1142 total</span>, sorted by <span class="sort-order">Date Added</span> descending</p>
+    </div>
+    <nav class="pagination pagination-compact top" aria-label="Compact Pagination">
+        <ol>
+            <li class="nav-item previous"><a class="nav-link previous-page-link is-disabled" href="#" aria-disabled="true"><span class="icon fa fa-angle-left" aria-hidden="true"></span> <span class="nav-label">Previous</span></a></li>
+            <li class="nav-item next"><a class="nav-link next-page-link" href="#" aria-disabled="false"><span class="nav-label">Next</span> <span class="icon fa fa-angle-right" aria-hidden="true"></span></a></li>
+        </ol>
+    </nav>
+</div>
+</div>
+
+    <table class="assets-table">
+        <caption class="sr">List of uploaded files and assets in this course</caption>
+        <colgroup>
+            <col class="thumb-cols">
+            <col class="name-cols">
+            <col class="type-cols">
+            <col class="date-cols">
+            <col class="embed-cols">
+            <col class="actions-cols">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="thumb-col">Preview</th>
+            <th class="name-col sortable-column">
+                <span class="column-sort-link" id="js-asset-name-col" role="button" tabindex="0">
+                    Name
+                    <span class="sr">- Sortable</span>
+                </span>
+            </th>
+            <th class="type-col filterable-column nav-dd">
+                <div id="js-asset-type-col" class="nav-item" role="button" tabindex="0">
+                    <span class="title">
+                        <span class="type-filter" data-alllabel="Type">Type</span>
+                        <span class="label-prefix sr">Filter</span>
+                        <span class="filter-link"></span>
+                        <span class="fa fa-caret-down ui-toggle-dd" aria-hidden="true"></span>
+                    </span>
+                    <div class="wrapper-nav-sub">
+                        <div class="nav-sub">
+                            <ul>
+                                <li class="nav-item reset-filter">
+                                    <a class="column-filter-link" href="" data-assetfilter="ALL">Show All</a>
+                                </li>
+                            
+                                <li class="nav-item">
+                                    <a class="column-filter-link" href="" data-assetfilter="OTHER">Other</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </th>
+            <th class="date-col sortable-column">
+                <span class="column-sort-link" id="js-asset-date-col">
+                    Date Added
+                    <span class="sr">- Sortable</span>
+                </span>
+            </th>
+            <th class="embed-col">URL</th>
+            <th class="actions-col"><span class="sr">Actions</span></th>
+        </tr>
+        </thead>
+        <tbody id="asset-table-body"><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.pngTest" class="filename">hosts.pngTest</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    PNGTEST
+</td>
+<td class="date-col">
+    Jul 13, 2017 at 22:50 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/hosts.pngTest" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.pngTest" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1061"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1061" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.jpg2000" class="filename">hosts.jpg2000</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JPG2000
+</td>
+<td class="date-col">
+    Jul 13, 2017 at 22:49 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/hosts.jpg2000" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.jpg2000" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1065"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1065" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.onepkg" class="filename">hosts.onepkg</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    ONEPKG
+</td>
+<td class="date-col">
+    Jul 13, 2017 at 22:45 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/hosts.onepkg" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@hosts.onepkg" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1069"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1069" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="/asset-v1:edX+DemoX+Demo_Course+type@thumbnail+block@images_course_image.jpg" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg" class="filename">images_course_image.jpg</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JPG
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/images_course_image.jpg" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1073"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1073" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@molecules_dopamine.mol" class="filename">dopamine.mol</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    MOL
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/molecules_dopamine.mol" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@molecules_dopamine.mol" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1077"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1077" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ar.js" class="filename">grid.locale-ar.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-ar.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ar.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1081"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1081" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fr.js" class="filename">grid.locale-fr.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-fr.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fr.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1085"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1085" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-da.js" class="filename">grid.locale-da.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-da.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-da.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1089"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1089" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sr.js" class="filename">grid.locale-sr.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-sr.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sr.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1093"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1093" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hr1250.js" class="filename">grid.locale-hr1250.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-hr1250.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hr1250.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1097"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1097" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ua.js" class="filename">grid.locale-ua.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-ua.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ua.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1101"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1101" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fi.js" class="filename">grid.locale-fi.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-fi.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fi.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1105"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1105" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hr.js" class="filename">grid.locale-hr.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-hr.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hr.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1109"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1109" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-de.js" class="filename">grid.locale-de.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-de.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-de.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1113"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1113" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ja.js" class="filename">grid.locale-ja.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-ja.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ja.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1117"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1117" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-tw.js" class="filename">grid.locale-tw.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-tw.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-tw.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1121"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1121" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-is.js" class="filename">grid.locale-is.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-is.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-is.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1125"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1125" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-el.js" class="filename">grid.locale-el.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-el.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-el.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1129"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1129" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pl.js" class="filename">grid.locale-pl.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-pl.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pl.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1133"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1133" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cat.js" class="filename">grid.locale-cat.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-cat.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cat.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1137"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1137" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-no.js" class="filename">grid.locale-no.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-no.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-no.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1141"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1141" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ro.js" class="filename">grid.locale-ro.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-ro.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ro.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1145"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1145" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hu.js" class="filename">grid.locale-hu.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-hu.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-hu.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1149"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1149" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-bg1251.js" class="filename">grid.locale-bg1251.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-bg1251.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-bg1251.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1153"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1153" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pt-br.js" class="filename">grid.locale-pt-br.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-pt-br.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pt-br.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1157"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1157" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-bg.js" class="filename">grid.locale-bg.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-bg.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-bg.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1161"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1161" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fa.js" class="filename">grid.locale-fa.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-fa.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-fa.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1165"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1165" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-tr.js" class="filename">grid.locale-tr.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-tr.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-tr.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1169"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1169" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-es.js" class="filename">grid.locale-es.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-es.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-es.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1173"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1173" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-mne.js" class="filename">grid.locale-mne.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-mne.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-mne.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1177"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1177" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sk.js" class="filename">grid.locale-sk.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-sk.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sk.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1181"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1181" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pt.js" class="filename">grid.locale-pt.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-pt.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-pt.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1185"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1185" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cn.js" class="filename">grid.locale-cn.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-cn.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cn.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1189"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1189" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-it.js" class="filename">grid.locale-it.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-it.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-it.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1193"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1193" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-lt.js" class="filename">grid.locale-lt.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-lt.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-lt.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1197"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1197" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-en.js" class="filename">grid.locale-en.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-en.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-en.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1201"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1201" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-kr.js" class="filename">grid.locale-kr.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-kr.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-kr.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1205"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1205" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-nl.js" class="filename">grid.locale-nl.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-nl.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-nl.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1209"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1209" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-dk.js" class="filename">grid.locale-dk.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-dk.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-dk.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1213"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1213" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-he.js" class="filename">grid.locale-he.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-he.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-he.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1217"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1217" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sr-latin.js" class="filename">grid.locale-sr-latin.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-sr-latin.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sr-latin.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1221"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1221" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-th.js" class="filename">grid.locale-th.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-th.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-th.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1225"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1225" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-gl.js" class="filename">grid.locale-gl.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-gl.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-gl.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1229"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1229" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sv.js" class="filename">grid.locale-sv.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-sv.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-sv.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1233"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1233" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cs.js" class="filename">grid.locale-cs.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-cs.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-cs.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1237"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1237" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ru.js" class="filename">grid.locale-ru.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_i18n_grid.locale-ru.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_i18n_grid.locale-ru.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1241"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1241" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_eDX.html" class="filename">eDX.html</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    HTML
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_IGV_js_eDX.html" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_eDX.html" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1245"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1245" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_jquery.js" class="filename">jquery.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_IGV_js_jquery.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_jquery.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1249"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1249" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_excanvas.js" class="filename">excanvas.js</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    JS
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_IGV_js_excanvas.js" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_excanvas.js" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1253"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1253" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr><tr>
+    <td class="thumb-col">
+    <div class="thumb">
+        
+        <img src="" alt="No description available">
+        
+    </div>
+</td>
+<td class="name-col">
+    <span class="title"><a data-tooltip="Open/download this file" href="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_eDX.html-e" class="filename">eDX.html-e</a></span>
+
+    <div class="embeddable-xml"></div>
+</td>
+<td class="type-col">
+    HTML-E
+</td>
+<td class="date-col">
+    Mar 17, 2017 at 20:24 UTC
+</td>
+<td class="embed-col">
+    <ul>
+        <li class="embed-url">
+            <label>
+                <span class="label">Studio:</span>
+                <input class="embeddable-xml-input" value="/static/js_IGV_js_eDX.html-e" readonly="" type="text">
+            </label>
+        </li>
+        <li class="external-url">
+            <label>
+                <span class="label">Web:</span>
+                <input class="embeddable-xml-input" value="x1v16stepdo1/asset-v1:edX+DemoX+Demo_Course+type@asset+block@js_IGV_js_eDX.html-e" readonly="" type="text">
+            </label>
+        </li>
+    </ul>
+
+</td>
+<td class="actions-col">
+    <ul class="actions-list">
+        <li class="action-item action-delete">
+            <a href="#" data-tooltip="Delete this asset" class="remove-asset-button action-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">Delete this asset</span></a>
+        </li>
+        <li class="action-item action-lock">
+            <label for="lock_asset_1257"><span class="sr">Lock this asset</span></label>
+            <input id="lock_asset_1257" class="lock-checkbox" data-tooltip="Lock/unlock file" type="checkbox">
+            <div class="action-button"><span class="icon fa fa-lock" aria-hidden="true"></span><span class="icon fa fa-unlock-alt" aria-hidden="true"></span></div>
+        </li>
+    </ul>
+</td>
+
+</tr></tbody>
+    </table>
+
+    <div id="asset-paging-footer"><nav class="pagination pagination-full bottom" aria-label="Pagination">
+    <div class="nav-item previous"><button class="nav-link previous-page-link is-disabled" aria-disabled="true"><span class="icon fa fa-angle-left" aria-hidden="true"></span> <span class="nav-label">Previous</span></button></div>
+    <div class="nav-item page">
+        <div class="pagination-form">
+            <label class="page-number-label" for="page-number-input">Page number out of 23</label>
+            <input id="page-number-input" class="page-number-input" name="page-number" size="4" autocomplete="off" aria-describedby="page-number-input-helper" type="text">
+            <span class="sr field-helper" id="page-number-input-helper">Enter the page number you'd like to quickly navigate to.</span>
+        </div>
+
+        <span class="current-page">1</span>
+        <span class="sr">&nbsp;out of&nbsp;</span>
+        <span class="page-divider" aria-hidden="true">/</span>
+        <span class="total-pages">23</span>
+    </div>
+    <div class="nav-item next"><button class="nav-link next-page-link" aria-disabled="false"><span class="nav-label">Next</span> <span class="icon fa fa-angle-right" aria-hidden="true"></span></button></div>
+</nav>
+</div>
+</div>
+
+<div class="no-asset-content" style="display: none;">
+    <p>You haven't added any assets to this course yet. <a href="#" class="button new-button upload-button"><span class="icon fa fa-plus" aria-hidden="true"></span>Upload your first asset</a></p>
+</div>
+</div></article>
+
+        <aside class="content-supplementary" role="complementary">
+            <div class="bit">
+                <h3 class="title-3">Adding Files for Your Course</h3>
+
+                <p>To add files to use in your course, click <strong>Upload New File</strong>. Then follow the prompts to upload a file from your computer.</p>
+
+                <p><strong>Caution</strong>: Microsoft Learning recommends that you limit the file size to <strong>10 MB</strong>. In addition, do not upload video or audio files. You should use a third party service to host multimedia files.</p>
+
+            	<p>The course image, textbook chapters, and files that appear on your Course Handouts sidebar also appear in this list.</p>
+            </div>
+            <div class="bit">
+                <h3 class="title-3">Using File URLs</h3>
+
+                <p>Use the <strong>Studio URL</strong> value to link to the file or image from a component, a course update, or a course handout.</p>
+
+                <p>Use the <strong>Web URL</strong> value to reference the file or image only from outside of your course. <strong>Note:</strong> If you lock a file, the Web URL no longer works for external access to a file.</p>
+
+                <p>To copy a URL, double click the value in the URL column, then copy the selected text.</p>
+            </div>
+            <div class="bit external-help">
+                <a href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/course_assets/course_files.html" target="_blank" class="button external-help-button">Learn more about managing files</a>
+            </div>
+
+        </aside>
+    </section>
+</div>
+
+<div class="upload-modal modal">
+    <a href="#" class="close-button"><span class="icon fa fa-times-circle" aria-hidden="true"></span> <span class="sr">close</span></a>
+    <div class="modal-body">
+        <h1 class="title">Upload New File</h1>
+        <h2>Max per-file size: 10MB</h2>
+        <p class="file-name">
+        </p><div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="embeddable">
+            <label>URL:</label>
+            <input class="embeddable-xml-input" value="" readonly="" type="text">
+        </div>
+        <form class="file-chooser" action="/assets/course-v1:edX+DemoX+Demo_Course/" method="post" enctype="multipart/form-data">
+            <a href="#" class="choose-file-button">Choose File</a>
+            <input class="file-input" name="file" multiple="" type="file">
+        </form>
+    </div>
+</div>
+
+
+
+          </div>
+      </main>
+
+        
+
+<div class="wrapper-sock wrapper">
+  <ul class="list-actions list-cta">
+    <li class="action-item">
+      <a href="#sock" class="cta cta-show-sock"><span class="icon fa fa-question-circle" aria-hidden="true"></span>
+        <span class="copy-show is-shown">Looking for help with Studio?</span>
+        <span class="copy-hide is-hidden">Hide Studio Help</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="wrapper-inner wrapper">
+    <section class="sock" id="sock" aria-labelledby="sock-heading">
+        <h2 id="sock-heading" class="title sr-only">Studio Documentation</h2>
+      <div class="support">
+        
+
+        <ul class="list-actions">
+              <li class="action-item">
+                <a href="http://docs.edx.org" title="Access documentation on http://docs.edx.org" rel="external" class="action action-primary" target="_blank">edX Documentation</a>
+                <span class="tip">Access documentation on http://docs.edx.org</span>
+              </li>
+              <li class="action-item">
+                <a href="https://open.edx.org" title="Access the Open edX Portal" rel="external" class="action action-primary" target="_blank">Open edX Portal</a>
+                <span class="tip">Access the Open edX Portal</span>
+              </li>
+              <li class="action-item">
+                <a href="https://www.edx.org/course/overview-creating-edx-course-edx-edx101#.VO4eaLPF-n1" title="Enroll in edX101: Overview of Creating an edX Course" rel="external" class="action action-primary" target="_blank">Enroll in edX101</a>
+                <span class="tip">Enroll in edX101: Overview of Creating an edX Course</span>
+              </li>
+              <li class="action-item">
+                <a href="https://www.edx.org/course/creating-course-edx-studio-edx-studiox" title="Enroll in StudioX: Creating a Course with edX Studio" rel="external" class="action action-primary" target="_blank">Enroll in StudioX</a>
+                <span class="tip">Enroll in StudioX: Creating a Course with edX Studio</span>
+              </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+      
+
+<div class="wrapper-footer wrapper">
+  <footer class="primary" role="contentinfo">
+
+    <div class="footer-content-primary">
+      <div class="colophon">
+        <p>© 2017 <a data-rel="edx.org" href="#" rel="external" title="This link will open in a new browser window/tab" target="_blank">Microsoft Learning</a>.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-content-secondary" aria-label="{_('Legal')}">
+      <div class="footer-about-copyright">
+        <p>
+          EdX, Open edX, Studio, and the edX and Open edX logos are registered trademarks or trademarks of <a data-rel="edx.org" href="https://www.edx.org/">edX Inc.</a>
+        </p>
+      </div>
+
+      <div class="footer-about-openedx">
+        <a href="http://open.edx.org" title="Powered by Open edX">
+          <img alt="Powered by Open edX" src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png">
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+
+      <div id="page-notification"></div>
+    </div>
+
+    <div id="page-prompt"></div>
+
+    
+
+    
+    <script type="text/javascript">
+      require(['common/js/common_libraries'], function () {
+          require(['js/factories/base'], function () {
+              require(['js/models/course'], function(Course) {
+                      window.course = new Course({
+                          id: "course\u002Dv1:edX+DemoX+Demo_Course",
+                          name: "edX Demonstration Course",
+                          url_name: "course",
+                          org: "edX",
+                          num: "DemoX",
+                          display_course_number: "",
+                          revision: "",
+                          self_paced: false
+                      });
+                      require(['js/sock']);
+                  
+    require(["js/factories/asset_index"], function (AssetIndexFactory) {
+        AssetIndexFactory({
+          assetCallbackUrl: "/assets/course\u002Dv1:edX+DemoX+Demo_Course/",
+          uploadChunkSizeInMBs: 10,
+          maxFileSizeInMBs: 10,
+          maxFileSizeRedirectUrl: ""
+        });
+    });
+
+              });
+          });
+      });
+    </script>
+    
+
+
+
+    <div class="modal-cover"></div>
+  
+
+<div id="reader-feedback" class="sr" aria-live="polite"></div><div class="tooltip" style="display: none; opacity: 0; left: 206px; top: 530px;">Open/download this file</div><div id="lean_overlay"></div></body></html>
